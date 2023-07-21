@@ -9,7 +9,7 @@ import { Connection, PublicKey, clusterApiUrl  } from '@solana/web3.js';
 import { Program, AnchorProvider, web3, utils } from '@project-serum/anchor';
 const {SystemProgram,Keypair} = web3;
 window.Buffer = Buffer
-const programID = new PublicKey('9WJTdSQ1F96fJFSGfpQMD6AEPqy14p5KcQuetDCRab91')
+const programID = new PublicKey('') //to be filled from smart contract's program id
 const opts = {
   preflightCommitment:"processed",
 }
@@ -88,18 +88,7 @@ function App() {
 
 
   return (
-
-    
-    <div className="App">
-      <header className="App-header">
-        <img src={viper} className="App-logo" alt="logo" />
-        <button onClick={connectWallet}>Connect Wallet</button>
-
-  <p>Address: {walletaddress}</p>
-  <input value={userInput} onChange={(e) => setUserInput(e.target.value)} />
-<button onClick={input}>Submit</button>
-      </header>
-    </div>
+       //webpage user interface code 
   );
 }
 
