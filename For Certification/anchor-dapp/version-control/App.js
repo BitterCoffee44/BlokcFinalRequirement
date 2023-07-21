@@ -1,10 +1,9 @@
 import './App.css';
-import viper from './assets/viper.png'
 
 import {useEffect, useState} from 'react'
 import * as anchor from "@project-serum/anchor";
 import {Buffer} from 'buffer';
-import idl from './user_input.json'
+import idl from './idl.json'
 import { Connection, PublicKey, clusterApiUrl  } from '@solana/web3.js';
 import { Program, AnchorProvider, web3, utils } from '@project-serum/anchor';
 const {SystemProgram,Keypair} = web3;
@@ -14,14 +13,13 @@ const opts = {
   preflightCommitment:"processed",
 }
 
-
+//networs
 //const network = "http://127.0.0.1:8899";  // for localnet
 //const network = clusterApiUrl("devnet") // for devnet
 const network = clusterApiUrl("testnet") // for testnet
 
 
 const new_account = Keypair.generate();
-console.log(new_account)
 
 function App() {
   
