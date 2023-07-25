@@ -1,12 +1,12 @@
-use anchor_lang::prelude::;
+use anchor_lang::prelude::*;
 
-declare_id!("9pLJrZrXoHjtRainTT9QxQ9PLrZ6jQXvD6PsCiDEkZUB");
-//new 4LtkH6YwvR6mKDZMVWja2rsUWYNS82CDWdCPCbsWeGyM
-//solana playground deployment: BNgaFszaVWZXGuxoerXmroZdRKfJwWyT7VfZ3CCUEZgU 
+//deployed using solana playground on devnet
+declare_id!("8soeHxfXiasRH4FTRAD3D5JoxRcxHGo4xqK2E5GCHMHi");
+
 
 #[program]
 mod user_input {
-    use super::;
+    use super::*;
     pub fn initialize(ctx: Context<InsertData>, data: String) -> Result<()> {
         ctx.accounts.new_account.data = data.to_string();
         msg!("Your entry was {}", data);
@@ -16,9 +16,12 @@ mod user_input {
 
 #[derive(Accounts)]
 pub struct InsertData<'info> {
-
     #[account(init, payer = signer, space = 8 + 32)]
+<<<<<<< Updated upstream
     pub new_account: Account<'info,  UserInput>,
+=======
+    pub new_account: Account<'info, UserInput>,
+>>>>>>> Stashed changes
     #[account(mut)]
     pub signer: Signer<'info>,
     pub system_program: Program<'info, System>,
@@ -27,4 +30,8 @@ pub struct InsertData<'info> {
 #[account]
 pub struct UserInput {
     data: String,
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

@@ -8,7 +8,7 @@ import { Program, AnchorProvider, web3, } from '@project-serum/anchor';
 import * as Web3 from '@solana/web3.js';
 const {SystemProgram,Keypair} = web3;
 window.Buffer = Buffer
-const programID = new PublicKey('9pLJrZrXoHjtRainTT9QxQ9PLrZ6jQXvD6PsCiDEkZUB');
+const programID = new PublicKey('8soeHxfXiasRH4FTRAD3D5JoxRcxHGo4xqK2E5GCHMHi');
 
 
 const opts = {
@@ -16,9 +16,7 @@ const opts = {
 }
 
 
-//const network = "http://127.0.0.1:8899";  // for localnet
-//const network = clusterApiUrl("devnet") // for devnet
-const network = clusterApiUrl("testnet") // for testnet
+const network = clusterApiUrl("devnet") // for devnet
 
 
 const new_account = Keypair.generate();
@@ -74,7 +72,7 @@ async function input() {
 
   try {
 
-    const txSignature = await program.rpc.initialize("test", {
+    const txSignature = await program.rpc.initialize(userInput, {
       accounts: {
         newAccount: new_account.publicKey,
         signer: provider.wallet.publicKey,
@@ -108,7 +106,7 @@ async function input() {
   
 const findTxRes = async () => {
   try {
-    const conn = new Web3.Connection('https://api.testnet.solana.com');
+    const conn = new Web3.Connection('https://api.devnet.solana.com');
     const fetchedTransaction = await conn.getConfirmedTransaction(txSig);
 
     console.log('Tx: ', fetchedTransaction);
